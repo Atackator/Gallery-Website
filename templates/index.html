@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Galerie Foto</h1>
+{% for category, files in images.items() %}
+    <h2>{{ category }}</h2>
+    <div class="row">
+        {% for file in files %}
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <a href="{{ url_for('uploaded_file', filename=category + '/' + file) }}" target="_blank">
+                    <img src="{{ url_for('uploaded_file', filename=category + '/' + file) | replace('.jpg', '.thumb.jpg') }}" alt="{{ file }}" style="width:100%">
+                </a>
+                {% if session.get('logged_in') %}
+                <form method="post" action="{{ url_for('delete', category=category, filename=file) }}" style="display:inline;">
+                    <input type="hidden" name="category" value="{{ category }}">
+                    <input type="hidden" name="filename" value="{{ file }}">
+                    <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+{% endblock %}

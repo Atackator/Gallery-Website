@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/cute_obi.jpg') }}" class="img-fluid rounded-circle" alt="Profile Picture">
+        </div>
+        <div class="col-md-8">
+            <h1>About Me</h1>
+            <p class="lead">Meesa Jar Jar Binks</p>
+            <p>
+                I hate sand and love touching younglings with a hot red lightsaber.
+            </p>
+            <p>
+                I also enjoy photography a lot. This page is dedicated to showing all the cool pics i took throughout the galaxy far far away;
+            </p>
+            <p>
+                May the Force be with you!
+            </p>
+            <p>
+                Also, Did you ever here the Tragedy of Darth Plagueis the Wise?
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
